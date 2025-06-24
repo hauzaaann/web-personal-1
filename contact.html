@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Voltura</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Share+Tech+Mono&family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-black text-white font-['Poppins']">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 z-50 bg-black bg-opacity-90">
+    <h1 class="text-2xl font-bold glitch" data-text="Voltura">Voltura</h1>
+    <nav class="space-x-4">
+      <a href="about.html" class="hover:text-cyan-400">About</a>
+      <a href="portfolio.html" class="hover:text-cyan-400">Portfolio</a>
+      <a href="projects.html" class="hover:text-cyan-400">Projects</a>
+      <a href="resume.html" class="hover:text-cyan-400">Resume</a>
+      <a href="blog.html" class="hover:text-cyan-400">Blog</a>
+      <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
+      <a href="contact.html" class="text-cyan-400">Contact</a>
+    </nav>
+    <button id="theme-toggle" class="ml-4 px-3 py-1 border rounded border-cyan-400 text-sm">Toggle Mode</button>
+  </header>
+
+  <!-- Title -->
+  <section class="text-center py-12">
+    <h2 class="text-5xl font-['Orbitron'] glitch" data-text="Contact Me">Contact Me</h2>
+    <p class="text-cyan-400 mt-2">Let's build something awesome together.</p>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="max-w-3xl mx-auto px-6 py-8 reveal">
+    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
+      <div>
+        <label for="name" class="block text-sm mb-1">Name</label>
+        <input type="text" name="name" id="name" required class="w-full bg-black border border-cyan-400 px-4 py-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-cyan-300" />
+      </div>
+      <div>
+        <label for="email" class="block text-sm mb-1">Email</label>
+        <input type="email" name="email" id="email" required class="w-full bg-black border border-cyan-400 px-4 py-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-cyan-300" />
+      </div>
+      <div>
+        <label for="message" class="block text-sm mb-1">Message</label>
+        <textarea name="message" id="message" rows="5" required class="w-full bg-black border border-cyan-400 px-4 py-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-cyan-300"></textarea>
+      </div>
+      <button type="submit" class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-2 px-6 rounded transform hover:scale-105 transition">Send Message</button>
+    </form>
+
+    <!-- Or Contact via WhatsApp -->
+    <div class="text-center mt-10">
+      <p class="text-gray-400 mb-2">Or contact me via WhatsApp:</p>
+      <a href="https://wa.me/6281234567890" target="_blank" class="inline-block bg-green-500 hover:bg-green-400 text-black font-bold px-5 py-2 rounded transition transform hover:scale-105">Chat on WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm py-6 opacity-60">
+    &copy; 2025 Voltura — Ping me anytime.
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    gsap.from("form", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      scrollTrigger: {
+        trigger: "form",
+        start: "top 80%",
+      }
+    });
+  </script>
+</body>
+</html>

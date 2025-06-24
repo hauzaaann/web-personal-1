@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Voltura</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Share+Tech+Mono&family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-black text-white font-['Poppins']">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center px-6 py-4 z-50 bg-black bg-opacity-90">
+    <h1 class="text-2xl font-bold glitch" data-text="Voltura">Voltura</h1>
+    <nav class="space-x-4">
+      <a href="about.html" class="hover:text-cyan-400">About</a>
+      <a href="portfolio.html" class="hover:text-cyan-400">Portfolio</a>
+      <a href="projects.html" class="hover:text-cyan-400">Projects</a>
+      <a href="resume.html" class="hover:text-cyan-400">Resume</a>
+      <a href="blog.html" class="text-cyan-400">Blog</a>
+      <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
+      <a href="contact.html" class="hover:text-cyan-400">Contact</a>
+    </nav>
+    <button id="theme-toggle" class="ml-4 px-3 py-1 border rounded border-cyan-400 text-sm">Toggle Mode</button>
+  </header>
+
+  <!-- Hero Title -->
+  <section class="text-center py-12">
+    <h2 class="text-5xl font-['Orbitron'] glitch" data-text="Blog">Blog</h2>
+    <p class="text-cyan-400 mt-2">Ideas, Notes & Code Chronicles.</p>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
+    <!-- Blog Card 1 -->
+    <div class="bg-black border border-cyan-500 rounded-xl p-5 shadow-lg hover:shadow-cyan-500/30 reveal transition hover:scale-[1.02]">
+      <h3 class="text-xl font-bold mb-2">⚙️ Building a Terminal UI with CSS</h3>
+      <p class="text-gray-400 text-sm mb-3">How I created a terminal-style experience using pure CSS, fonts, and animations.</p>
+      <a href="blog-detail.html?id=terminal-ui" class="text-cyan-400 hover:underline text-sm">Read more →</a>
+    </div>
+
+    <!-- Blog Card 2 -->
+    <div class="bg-black border border-pink-500 rounded-xl p-5 shadow-lg hover:shadow-pink-500/30 reveal transition hover:scale-[1.02]">
+      <h3 class="text-xl font-bold mb-2">🚀 Astro vs React for Static Sites</h3>
+      <p class="text-gray-400 text-sm mb-3">I compared Astro and React to build ultra-fast portfolio websites — here’s what I found.</p>
+      <a href="blog-detail.html?id=astro-vs-react" class="text-pink-400 hover:underline text-sm">Read more →</a>
+    </div>
+
+    <!-- Add more blog entries here -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm py-6 opacity-60">
+    &copy; 2025 Voltura — Words by <span class="text-cyan-400">[Nama Kamu]</span>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        }
+      });
+    });
+  </script>
+</body>
+</html>
