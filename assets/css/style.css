@@ -1,235 +1,28 @@
-/* === GLOBAL === */
 body {
-  cursor: none;
-  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* === GLITCH EFFECT === */
 .glitch {
   position: relative;
-  color: white;
-  text-shadow: 0 0 4px cyan, 0 0 10px ;
+  color: #fff;
+  text-shadow: 0 0 4px cyan, 0 0 10px;
 }
-.glitch::before,
-.glitch::after {
+
+.glitch::before {
   content: attr(data-text);
   position: absolute;
   left: 0;
-}
-.glitch::before {
   animation: glitchTop 2s infinite linear alternate-reverse;
   color: cyan;
   clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
 }
-.glitch::after {
-  content: ''; /* Kosongkan isi */
-  display: none; /* Nonaktifkan */
-}
+
 @keyframes glitchTop {
   0%   { transform: translate(0); }
   50%  { transform: translate(-2px, -2px); }
   100% { transform: translate(2px, 2px); }
 }
-@keyframes glitchBottom {
-  0%   { transform: translate(0); }
-  50%  { transform: translate(2px, 2px); }
-  100% { transform: translate(-2px, -2px); }
-}
 
-/* === HERO SECTION === */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  padding: 6rem 1rem 2rem;
-}
-
-/* === ANIMASI TOMBOL MASUK === */
-.hero-section a {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1.2s ease-out 0.8s forwards;
-}
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === SUBTITLE SPLIT ANIMATION === */
-.subtitle span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: subtitleFade 0.6s ease forwards;
-}
-.subtitle span:nth-child(n) {
-  animation-delay: calc(0.05s * var(--i));
-}
-@keyframes subtitleFade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === NEON BUTTON HOVER === */
-.btn-neon {
-  box-shadow: 0 0 5px cyan, 0 0 15px cyan;
-  transition: all 0.3s ease-in-out;
-}
-.btn-neon:hover {
-  box-shadow: 0 0 10px cyan, 0 0 25px cyan, 0 0 40px cyan;
-  transform: scale(1.05);
-}
-
-/* === 3D HOVER CARD (VanillaTilt ready) === */
-.card-3d {
-  background: #0d0d0d;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,255,255,0.1);
-  transform-style: preserve-3d;
-  transition: transform 0.3s;
-}
-.card-3d:hover {
-  box-shadow: 0 0 25px rgba(0,255,255,0.4);
-}
-
-/* === TERMINAL TYPING INTRO === */
-.terminal-typing {
-  font-family: 'Share Tech Mono', monospace;
-  color: lime;
-  background: black;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,255,0,0.2);
-}
-
-/* === CUSTOM CURSOR === */
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-}
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: cyan;
-  border-radius: 50%;
-}
-.cursor-ring {
-  width: 40px;
-  height: 40px;
-  border: 2px solid cyan;
-  border-radius: 50%;
-  transition: transform 0.15s ease-out;
-}
-
-/* === SCROLL PROMPT / CTA ARROW === */
-.scroll-prompt {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: bounce 2s infinite;
-  color: cyan;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(-10px); }
-}
-
-/* === RESPONSIVE SETTINGS === */
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 4rem 1rem;
-  }
-  .hero-section h2 {
-    font-size: 2rem;
-  }
-  .hero-section p {
-    font-size: 1rem;
-  }
-}
-
-/* Particles canvas */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-
-/* Navbar z-index is already high with Tailwind class `z-50` */
-
-
-
-/* Hero Section Glowing Box */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-  padding: 2rem;
-  text-align: center;
-}
-
-/* Tombol smooth masuk */
-.hero-section a {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1.2s ease-out 0.8s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-[data-animate] {
-  will-change: transform, opacity;
-}
-
-/* === Cursor Neon Glowing === */
-#custom-cursor {
-  pointer-events: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-}
-
-.cursor-dot,
-.cursor-ring {
-  position: absolute;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: cyan;
-  box-shadow: 0 0 10px cyan;
-}
-
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 2px solid cyan;
-  box-shadow: 0 0 20px cyan;
-  transition: transform 0.2s ease;
+.backdrop-blur {
+  backdrop-filter: blur(12px);
 }

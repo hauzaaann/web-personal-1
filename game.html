@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyber Catcher</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at 30% 30%, #0f0f1f, #000);
+      color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+    }
+
+    .ball {
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, #0ff, #00f);
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer;
+      box-shadow: 0 0 20px #0ff;
+      animation: pulse 0.5s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+
+    .hud {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    #startBtn {
+      margin-top: 25px;
+      background: linear-gradient(90deg, #00f0ff, #0077ff);
+      color: black;
+      font-weight: bold;
+      border: none;
+      box-shadow: 0 0 10px #0ff;
+      transition: transform 0.2s ease;
+    }
+    #startBtn:hover {
+      transform: scale(1.05);
+    }
+
+    h1.display-4 {
+      font-size: clamp(1.8rem, 6vw, 3rem);
+    }
+    p.lead {
+      font-size: clamp(0.9rem, 4vw, 1.25rem);
+    }
+    .hud h2 {
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container text-center py-5">
+    <h1 class="display-4 fw-bold text-glow">Cyber Catcher</h1>
+    <p class="lead text-info">Catch as many balls as you can in 30 seconds!</p>
+    <button id="startBtn" class="btn btn-lg rounded-pill px-4">Start Game</button>
+  </div>
+
+  <div class="hud">
+    <h2>⏱️ Time: <span id="timer">30</span>s</h2>
+    <h2>🎯 Score: <span id="score">0</span></h2>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const timerEl = document.getElementById('timer');
+    const scoreEl = document.getElementById('score');
+
+    let score = 0;
+    let timeLeft = 30;
+    let gameInterval, spawnInterval;
+
+    function createBall() {
+      const ball = document.createElement('div');
+      ball.classList.add('ball');
+      const size = 30 + Math.random() * 30;
+      ball.style.width = ball.style.height = size + 'px';
+      ball.style.left = Math.random() * (window.innerWidth - size) + 'px';
+      ball.style.top = Math.random() * (window.innerHeight - size) + 'px';
+
+      ball.onclick = () => {
+        score++;
+        scoreEl.textContent = score;
+        gsap.to(ball, { scale: 2, opacity: 0, duration: 0.3, onComplete: () => ball.remove() });
+      };
+
+      document.body.appendChild(ball);
+
+      // Remove ball after 2.5s
+      setTimeout(() => {
+        if (document.body.contains(ball)) {
+          gsap.to(ball, { opacity: 0, duration: 0.5, onComplete: () => ball.remove() });
+        }
+      }, 2500);
+    }
+
+    function startGame() {
+      score = 0;
+      timeLeft = 30;
+      scoreEl.textContent = score;
+      timerEl.textContent = timeLeft;
+      startBtn.disabled = true;
+      startBtn.textContent = 'Playing...';
+
+      spawnInterval = setInterval(createBall, 600);
+      gameInterval = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(gameInterval);
+          clearInterval(spawnInterval);
+          document.querySelectorAll('.ball').forEach(el => el.remove());
+          alert('Game Over! Your Score: ' + score);
+          startBtn.disabled = false;
+          startBtn.textContent = 'Play Again';
+        }
+      }, 1000);
+    }
+
+    startBtn.addEventListener('click', startGame);
+  </script>
+</body>
+</html>

@@ -1,69 +1,137 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Galeri | Voltura</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Share+Tech+Mono&family=Poppins&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-
-  <!-- Lightbox -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body class="bg-black text-white font-['Poppins']">
-  <!-- Navbar -->
-  <header class="flex justify-between items-center px-6 py-4 z-50 bg-black bg-opacity-90">
-    <h1 class="text-2xl font-bold glitch" data-text="Voltura">Voltura</h1>
-    <nav class="space-x-4">
-      <a href="about.html" class="hover:text-cyan-400">About</a>
-      <a href="portfolio.html" class="hover:text-cyan-400">Portfolio</a>
-      <a href="projects.html" class="hover:text-cyan-400">Projects</a>
-      <a href="resume.html" class="hover:text-cyan-400">Resume</a>
-      <a href="blog.html" class="hover:text-cyan-400">Blog</a>
-      <a href="galeri.html" class="text-cyan-400">Galeri</a>
-      <a href="contact.html" class="hover:text-cyan-400">Contact</a>
-    </nav>
-    <button id="theme-toggle" class="ml-4 px-3 py-1 border rounded border-cyan-400 text-sm">Toggle Mode</button>
-  </header>
+<body class="bg-black text-white font-poppins position-relative overflow-hidden">
+  <!-- Particle Background -->
+  <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100 z-n1"></div>
 
-  <!-- Hero -->
-  <section class="text-center py-12">
-    <h2 class="text-5xl font-['Orbitron'] glitch" data-text="Gallery">Gallery</h2>
-    <p class="text-cyan-400 mt-2">A glimpse into my visual world.</p>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-black bg-opacity-75 px-3 py-3 sticky-top z-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="navbar-brand glitch fs-3 mb-0" data-text="Voltura">Voltura</h1>
+      <div>
+        <a href="about.html" class="text-white text-decoration-none me-3">About</a>
+        <a href="portfolio.html" class="text-white text-decoration-none me-3">Portfolio</a>
+        <a href="projects.html" class="text-white text-decoration-none me-3">Projects</a>
+        <a href="resume.html" class="text-white text-decoration-none me-3">Resume</a>
+        <a href="blog.html" class="text-white text-decoration-none me-3">Blog</a>
+        <a href="galeri.html" class="text-info text-decoration-none fw-bold me-3">Galeri</a>
+        <a href="contact.html" class="text-white text-decoration-none">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Title -->
+  <section class="text-center py-5">
+    <h2 class="display-4 glitch" data-text="Galeri">COOMING SOON</h2>
+    <p class="text-info">My visual experiments and snapshots.</p>
   </section>
 
   <!-- Gallery Grid -->
-  <section class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <!-- Item 1 -->
-    <a href="assets/gallery/1.jpg" class="glightbox group overflow-hidden rounded-xl border border-cyan-500">
-      <img src="assets/gallery/1.jpg" alt="UI Design 1" class="w-full h-60 object-cover group-hover:scale-105 transition" />
-    </a>
+  <section class="container py-5">
+    <div class="row g-4">
+      <!-- Image 1 -->
+      <div class="col-sm-6 col-md-4 reveal">
+        <div class="card bg-dark border-info shadow h-100">
+          <img src="assets/images/gallery1.jpg" class="card-img-top" alt="Galeri Image 1">
+          <div class="card-body">
+            <h5 class="card-title text-white">Cyberpunk Street</h5>
+            <p class="card-text text-secondary small">A neon-lit alley captured at night in Tokyo-inspired render.</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Item 2 -->
-    <a href="assets/gallery/2.jpg" class="glightbox group overflow-hidden rounded-xl border border-pink-500">
-      <img src="assets/gallery/2.jpg" alt="UI Design 2" class="w-full h-60 object-cover group-hover:scale-105 transition" />
-    </a>
+      <!-- Image 2 -->
+      <div class="col-sm-6 col-md-4 reveal">
+        <div class="card bg-dark border-pink shadow h-100">
+          <img src="assets/images/gallery2.jpg" class="card-img-top" alt="Galeri Image 2">
+          <div class="card-body">
+            <h5 class="card-title text-white">Terminal Dashboard</h5>
+            <p class="card-text text-secondary small">A futuristic command UI concept inspired by hacker themes.</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Item 3 -->
-    <a href="assets/gallery/3.jpg" class="glightbox group overflow-hidden rounded-xl border border-purple-500">
-      <img src="assets/gallery/3.jpg" alt="Certificate" class="w-full h-60 object-cover group-hover:scale-105 transition" />
-    </a>
-
-    <!-- Tambahkan item lain sesuai kebutuhan -->
+      <!-- Image 3 -->
+      <div class="col-sm-6 col-md-4 reveal">
+        <div class="card bg-dark border-purple shadow h-100">
+          <img src="assets/images/gallery3.jpg" class="card-img-top" alt="Galeri Image 3">
+          <div class="card-body">
+            <h5 class="card-title text-white">UI/UX Showcase</h5>
+            <p class="card-text text-secondary small">Components designed for Voltura project visual identity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-sm py-6 opacity-60">
-    &copy; 2025 Voltura — All images © [Nama Kamu]
+  <footer class="text-center text-muted py-4 small opacity-75">
+    &copy; 2025 Voltura — Visuals by <span class="text-info">Hauzan Dzakwan Kh</span>
   </footer>
 
-  <!-- Lightbox JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
   <script>
-    const lightbox = GLightbox({ selector: '.glightbox' });
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+        }
+      });
+    });
+
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: ["#00fff7", "#ff00f7", "#7f00ff"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.7, random: true },
+        size: { value: 4, random: true },
+        line_linked: {
+          enable: true,
+          distance: 130,
+          color: "#ffffff",
+          opacity: 0.3,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 0.5 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
   </script>
 </body>
 </html>

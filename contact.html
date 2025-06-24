@@ -1,81 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | Voltura</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Share+Tech+Mono&family=Poppins&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css" />
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body class="bg-black text-white font-['Poppins']">
+<body class="bg-black text-white font-poppins position-relative overflow-hidden">
+  <!-- Particle Background -->
+  <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100 z-n1"></div>
+
   <!-- Navbar -->
-  <header class="flex justify-between items-center px-6 py-4 z-50 bg-black bg-opacity-90">
-    <h1 class="text-2xl font-bold glitch" data-text="Voltura">Voltura</h1>
-    <nav class="space-x-4">
-      <a href="about.html" class="hover:text-cyan-400">About</a>
-      <a href="portfolio.html" class="hover:text-cyan-400">Portfolio</a>
-      <a href="projects.html" class="hover:text-cyan-400">Projects</a>
-      <a href="resume.html" class="hover:text-cyan-400">Resume</a>
-      <a href="blog.html" class="hover:text-cyan-400">Blog</a>
-      <a href="galeri.html" class="hover:text-cyan-400">Galeri</a>
-      <a href="contact.html" class="text-cyan-400">Contact</a>
-    </nav>
-    <button id="theme-toggle" class="ml-4 px-3 py-1 border rounded border-cyan-400 text-sm">Toggle Mode</button>
-  </header>
+  <nav class="navbar navbar-dark bg-black bg-opacity-75 px-3 py-3 sticky-top z-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="navbar-brand glitch fs-3 mb-0" data-text="Voltura">Voltura</h1>
+      <div>
+        <a href="about.html" class="text-white text-decoration-none me-3">About</a>
+        <a href="portfolio.html" class="text-white text-decoration-none me-3">Portfolio</a>
+        <a href="projects.html" class="text-white text-decoration-none me-3">Projects</a>
+        <a href="resume.html" class="text-white text-decoration-none me-3">Resume</a>
+        <a href="blog.html" class="text-white text-decoration-none me-3">Blog</a>
+        <a href="galeri.html" class="text-white text-decoration-none me-3">Galeri</a>
+        <a href="contact.html" class="text-info text-decoration-none fw-bold">Contact</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- Title -->
-  <section class="text-center py-12">
-    <h2 class="text-5xl font-['Orbitron'] glitch" data-text="Contact Me">Contact Me</h2>
-    <p class="text-cyan-400 mt-2">Let's build something awesome together.</p>
+  <section class="text-center py-5">
+    <h2 class="display-4 glitch" data-text="Contact">Contact</h2>
+    <p class="text-info">Connect with me through these platforms.</p>
   </section>
 
-  <!-- Contact Form -->
-  <section class="max-w-3xl mx-auto px-6 py-8 reveal">
-    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
-      <div>
-        <label for="name" class="block text-sm mb-1">Name</label>
-        <input type="text" name="name" id="name" required class="w-full bg-black border border-cyan-400 px-4 py-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-cyan-300" />
-      </div>
-      <div>
-        <label for="email" class="block text-sm mb-1">Email</label>
-        <input type="email" name="email" id="email" required class="w-full bg-black border border-cyan-400 px-4 py-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-cyan-300" />
-      </div>
-      <div>
-        <label for="message" class="block text-sm mb-1">Message</label>
-        <textarea name="message" id="message" rows="5" required class="w-full bg-black border border-cyan-400 px-4 py-2 rounded text-white focus:outline-none focus:ring-2 focus:ring-cyan-300"></textarea>
-      </div>
-      <button type="submit" class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-2 px-6 rounded transform hover:scale-105 transition">Send Message</button>
-    </form>
-
-    <!-- Or Contact via WhatsApp -->
-    <div class="text-center mt-10">
-      <p class="text-gray-400 mb-2">Or contact me via WhatsApp:</p>
-      <a href="https://wa.me/6281234567890" target="_blank" class="inline-block bg-green-500 hover:bg-green-400 text-black font-bold px-5 py-2 rounded transition transform hover:scale-105">Chat on WhatsApp</a>
+  <!-- Social Icons -->
+  <section class="container text-center py-5">
+    <div class="d-flex justify-content-center gap-4 flex-wrap">
+      <a href="https://instagram.com/hauzaann__" target="_blank" class="text-white fs-3 social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/6288224981010" target="_blank" class="text-success fs-3 social-icon"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" target="_blank" class="text-primary fs-3 social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" target="_blank" class="text-white fs-3 social-icon"><i class="fab fa-github"></i></a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-sm py-6 opacity-60">
-    &copy; 2025 Voltura — Ping me anytime.
+  <footer class="text-center text-muted py-4 small opacity-75">
+    &copy; 2025 Voltura — Say hello anytime.
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    gsap.from("form", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      scrollTrigger: {
-        trigger: "form",
-        start: "top 80%",
-      }
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: ["#00fff7", "#ff00f7", "#7f00ff"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.7, random: true },
+        size: { value: 4, random: true },
+        line_linked: {
+          enable: true,
+          distance: 130,
+          color: "#ffffff",
+          opacity: 0.3,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 0.5 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
     });
   </script>
 </body>

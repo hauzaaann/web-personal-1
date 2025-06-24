@@ -1,0 +1,26 @@
+/* === Light Mode === */
+body.light-mode {
+  background-color: #f1f1f1;
+  color: #111;
+}
+
+body.light-mode .nav-links a {
+  color: #222;
+}
+
+body.light-mode .nav-links a:hover {
+  color: #ff2efb;
+}
+
+body.light-mode .logo {
+  color: #111;
+}
+
+body.light-mode .project p {
+  color: #333;
+}
+
+body.light-mode .section-title {
+  color: #7f00ff;
+  text-shadow: 0 0 4px #7f00ff;
+}
